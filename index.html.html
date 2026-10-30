@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Case of the Missing Result Page</title>
+<style>
+:root{--bg:#fbf8f3;--fg:#1d2433;--mut:#5b6577;--acc:#e8751a;--blu:#1f5fa8;--card:#fff;--bd:#e3dccf;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#12161f;--fg:#e8eaf0;--mut:#9aa4b8;--acc:#ff9440;--blu:#6aa9f0;--card:#1b2130;--bd:#2c3447;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#12161f;--fg:#e8eaf0;--mut:#9aa4b8;--acc:#ff9440;--blu:#6aa9f0;--card:#1b2130;--bd:#2c3447;color-scheme:dark}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--fg);font:18px/1.7 Georgia,'Times New Roman',serif}
+#bar{position:fixed;top:0;left:0;height:4px;width:0;background:var(--acc);z-index:20}
+main{max-width:720px;margin:0 auto;padding:24px 18px 60px}
+h1{font:800 clamp(2rem,6vw,3rem)/1.1 system-ui,sans-serif;margin:.2em 0}
+h2{font:700 1.5rem/1.2 system-ui,sans-serif;color:var(--blu);margin:2.2em 0 .6em}
+.tag{font:600 .8rem system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--acc)}
+.by{color:var(--mut);font-family:system-ui,sans-serif}
+.path{display:flex;flex-wrap:wrap;gap:6px;margin:20px 0;font:600 .8rem system-ui,sans-serif}
+.path a{background:var(--card);border:1px solid var(--bd);border-radius:20px;padding:5px 12px;color:var(--fg);text-decoration:none}
+.chat{background:var(--card);border-left:4px solid var(--acc);padding:10px 14px;border-radius:6px;font:.95rem/1.5 system-ui,sans-serif;margin:16px 0}
+.cf{background:var(--card);border:1px solid var(--bd);border-top:4px solid var(--blu);border-radius:8px;padding:12px 16px;margin:24px 0;font:.95rem/1.55 system-ui,sans-serif}
+.cf b{color:var(--blu)}.cf ul{margin:.4em 0;padding-left:1.2em}
+.ping{color:var(--acc);font-style:italic}
+table{width:100%;border-collapse:collapse;font:.95rem system-ui,sans-serif}td,th{border:1px solid var(--bd);padding:8px;text-align:left}
+.wrap{overflow-x:auto}
+blockquote{margin:28px 0;padding:12px 18px;border-left:4px solid var(--acc);font-size:1.15rem;font-style:italic}
+footer{color:var(--mut);font:.85rem system-ui,sans-serif;margin-top:50px;border-top:1px solid var(--bd);padding-top:14px}
+</style></head><body><div id="bar"></div><main>
+<p class="tag">A Computer Networks detective comedy · Units III, IV &amp; V</p>
+<h1>The Case of the Missing Result Page</h1>
+<p class="by">By Arya, Mannat, Tiya and Vidhi</p>
+<div class="path"><a href="#p">Prologue</a><a href="#c1">1 · DHCP &amp; ARP</a><a href="#c2">2 · Routing</a><a href="#c3">3 · Handshake</a><a href="#c4">4 · Congestion</a><a href="#c5">5 · DNS</a><a href="#c6">6 · Firewall &amp; SDN</a><a href="#v">Verdict</a></div>
+
+<h2 id="p">Prologue: 10 p.m. in the Orange City</h2>
+<p>The semester results were out, and in Nagpur, Aarav Deshmukh’s phone showed three grey words: <b>This site can’t be reached.</b></p>
+<div class="chat"><b>Meera:</b> Bro are you in?? I passed everything, I think I’m crying<br><b>Kunal:</b> Loaded in 2 seconds. Easy.<br><b>Mom:</b> Aarav, why are you not replying?</div>
+<p>“Kunal got through,” Aarav whispered. “Kunal thinks DHCP is a biscuit.” His friend Mannat, who had topped Computer Networks twice and never let anyone forget it, jabbed at her laptop. “It’s a server problem. Honestly, it’s probably…”</p>
+<p>The router blinked, and a tiny figure in a trench coat climbed out of the light, a green parrot on his shoulder. “Inspector Packet, network detective. This is my partner, Ping.”</p>
+<p class="ping">“Ping!”</p>
+<p>“He repeats everything,” said the Inspector. “Now listen. A request can fail at four places: you never properly joined the network, the packet got lost, the destination is in trouble, or somebody shut the door. We check them in order. Our motto: <b>follow the packet.</b>”</p>
+<div class="cf"><b>Case File: Bluetooth.</b> Short range (about 10 m). One master with up to seven active slaves forms a <b>piconet</b>. It plays no part in reaching a website, so Ping crossed it off.</div>
+
+<h2 id="c1">Chapter 1: The Nameless Device (Unit III)</h2>
+<p>The Inspector shrank them to the size of a coin and slid them into the router, where a hotel lobby waited. Behind the desk stood Mrs. DHCP, a brisk receptionist with a rack of keys marked 192.168.1.x.</p>
+<p>“When your phone joined the Wi-Fi, it had no address, so it shouted.” <b>Discover:</b> anybody got a room? <b>Offer:</b> “Room 192.168.1.23, sir.” <b>Request:</b> “I’ll take it!” <b>Acknowledge:</b> “Yours until the lease is up. Don’t trash it.”</p>
+<p>“That’s IPv4,” said Mrs. DHCP. “Thirty-two bits. We’re nearly out of rooms.” “Which is why IPv6 has 128 bits,” said Mannat, “enough for every phone, fridge and doorbell on Earth.”</p>
+<p>But a room number isn’t enough to hand anything to the router next door. The phone became a town crier: “WHO HAS 192.168.1.1? TELL ME YOUR MAC ADDRESS!” The router, a bored security guard, sighed and answered. The phone wrote it in a notebook, the <b>ARP cache</b>, so he’d never shout again.</p>
+<p>“Your IP address is where you live,” said the Inspector. “Your MAC address is the name stitched on your shirt. You’re definitely on the network. Ping?”</p>
+<p class="ping">“Alibi!” (Ping had misunderstood the entire case.)</p>
+<div class="cf"><b>Case File: Unit III, Part 1</b><ul><li>DHCP gives IPs automatically: <b>DORA</b> (Discover, Offer, Request, Acknowledge), with a lease time.</li><li>IPv4 = 32 bits. IPv6 = 128 bits.</li><li>ARP maps IP to MAC. Request is broadcast, reply is unicast and stored in the ARP cache.</li><li>RARP (MAC to IP) and BOOTP (ancestor of DHCP) are older protocols DHCP largely replaced.</li></ul></div>
+
+<h2 id="c2">Chapter 2: The Wrong Turn (Unit III)</h2>
+<p>They zoomed out into the maze of the ISP’s network. Every router asked every packet’s question: where next? Choosing the road per packet is <b>forwarding</b>. Drawing the signboards is <b>routing</b>. Three officers were arguing about it.</p>
+<p><b>Rip Uncle (RIP)</b> was the gossip. He counted steps, refused to believe anything was more than 15 hops away, and told his neighbours everything every thirty seconds. “Sixteen means unreachable,” Mannat whispered. “Show-off,” said the Inspector. <span class="ping">“Show-off!”</span></p>
+<p><b>Ms. OSPF</b> had the whole colony map on her wall, ran Dijkstra in her head and picked the cheapest route inside one organisation. “Road closed? Give me one second,” she said, and redrew everything.</p>
+<p><b>Mr. BGP</b> wore a suit and worked between states (autonomous systems). “Between states, the shortest road hardly matters. What matters is who has an agreement with whom.” That explained a suspicious detour through another ISP.</p>
+<p>“Politics,” said the Inspector. “Annoying, not criminal. The packet reached the university’s gate safely. The road is innocent.” He pointed at a huge building with a queue around the block. “The problem is inside.”</p>
+<div class="cf"><b>Case File: Unit III, Part 2</b><ul><li>Forwarding = per-packet decision from the routing table. Routing = building that table.</li><li>RIP: distance-vector, hop count, max 15.</li><li>OSPF: link-state, Dijkstra, link cost, inside one AS.</li><li>BGP: path-vector, between ASes, policy-driven.</li></ul></div>
+
+<h2 id="c3">Chapter 3: The Handshake (Unit IV)</h2>
+<p>“Welcome to Result Bhavan,” said the Inspector. “One address, thousands of rooms. We call the room numbers <b>ports</b>. Secure websites live in room 443.” Outside it sat a very tired clerk who demanded the full three-way handshake.</p>
+<div class="chat"><b>Phone:</b> SYN (hello, can we talk?)<br><b>Clerk:</b> SYN-ACK (yes, can you hear me?) <i>…after what felt like a week</i><br><b>Phone:</b> ACK (loud and clear)</div>
+<p>“That’s TCP,” said the Inspector. “A registered courier: both sides ready, everything in order, lost items chased. The alternative is UDP, a postcard. Fast, carefree, and nobody checks it arrived.”</p>
+<p>“Like my video call with Nani,” said Mannat. “Her face glitched, but it never stopped.” “Resending an old frame would only make her late. But an exam result with a missing digit is a disaster. That needs the courier.”</p>
+<p>Hanging up is polite too: one side says FIN, the other ACKs, then sends its own FIN, and each direction closes separately. But tonight the SYN-ACK was crawling. The clerk wasn’t broken, he was drowning: forty thousand students stood in a line down Wardha Road, all pressing refresh.</p>
+<div class="cf"><b>Case File: Unit IV, Part 1</b><ul><li>Ports: 443 HTTPS, 80 HTTP, 53 DNS.</li><li>Connection setup: SYN, SYN-ACK, ACK. Release: FIN and ACK in each direction.</li><li>TCP = reliable, connection-oriented. UDP = connectionless, low overhead, suits real-time traffic.</li></ul></div>
+
+<h2 id="c4">Chapter 4: The Traffic Jam (Unit IV)</h2>
+<p>TCP’s driving instructor was a nervous learner who didn’t know how crowded the road was. Rule one, <b>slow start</b>: send one car, then two, four, eight, doubling every trip. “That’s not slow, that’s explosive,” said Aarav. “Slow compared to what it could have done. It started with one.”</p>
+<p>At a threshold the driver switches to <b>congestion avoidance</b>, adding one car per trip. When cars go missing he brakes: a few missing replies means he halves his speed, total silence means back to one car. “Increase gently, brake hard,” said Mannat. “AIMD. I could write this answer in my sleep.” “You’re basically sleeping,” said the Inspector.</p>
+<p>Aarav’s Wi-Fi blinked. “TCP noticed,” said the Inspector. “Anything unacknowledged is sent again. TCP doesn’t give up. TCP is not Kunal.” And if the server crashes? “It wakes up with amnesia. Your phone says ‘as I was saying…’ and the server replies ‘Who are you?’ That’s a reset.”</p>
+<p>Then Mannat frowned. “If the whole road is jammed, everybody should be slow. But Kunal loaded in two seconds.” The Inspector’s eyes narrowed. “Somebody is lying to us, and I smell old paper.”</p>
+<div class="cf"><b>Case File: Unit IV, Part 2</b><ul><li>Flow control protects the receiver. Congestion control protects the network.</li><li>Slow start doubles the window per RTT, then congestion avoidance adds 1 segment per RTT.</li><li>3 duplicate ACKs: fast retransmit, window halved. Timeout: window reset to 1.</li><li>After a host crash, state is lost, the peer is reset, the application must recover.</li></ul></div>
+
+<h2 id="c5">Chapter 5: The Lost Address Book (Unit V)</h2>
+<p>The Inspector led them into the world’s dustiest library: the DNS. “You typed a name. Computers can’t post letters to names.” The ISP’s resolver asked the Root office (“try .in”), then the .in office (“try the university”), and the university’s server finally gave the real address, normally over UDP port 53. The clerk scribbled it on a sticky note with an expiry time, the <b>TTL</b>.</p>
+<p>Mannat went very still. “Aarav. We both opened the portal at eight. Kunal didn’t. Our sticky notes are old.” “At 9 p.m.,” said the Inspector, “the university moved the portal to a bigger server with a new address, and Dynamic DNS updated the official book at once. Your notes still point at the old, exhausted door. Kunal opened it at 10 with no note, so he got the new one.”</p>
+<p class="ping">“Show-off!” (said Ping, to Mannat.) “…That one was fair,” Mannat admitted.</p>
+<p>Aarav toggled airplane mode, clearing his note, and got the new address. Down the corridor the exam cell uploaded results via FTP, with one window for talking (port 21) and one for parcels (port 20). The page began to load, froze, and then: <b>Connection timed out.</b> “The sticky note was a suspect,” said the Inspector. “Not the culprit. The culprit is guarding the door.”</p>
+<div class="cf"><b>Case File: Unit V, Part 1</b><ul><li>DNS hierarchy: root, TLD, authoritative server.</li><li>Caching with TTL is fast but can serve stale answers.</li><li>Dynamic DNS updates records automatically when an IP changes.</li><li>FTP: control connection port 21, data connection port 20.</li></ul></div>
+
+<h2 id="c6">Chapter 6: The Gatekeeper (Unit V)</h2>
+<p>At the new server stood Firewall Sharma-ji, moustache, lathi and a very thick rulebook. “Sender address? Hmm. Rule 47. Not allowed.” “He’s a student!” said the Inspector. “Rule 47 was added at 9:55 p.m.: block this whole range. There was a flood of suspicious traffic, so the admin blocked a neighbourhood. Your ISP lives there. I do not make the rules. I follow them very, very loyally.”</p>
+<p>“That rule is far too broad,” Mannat argued. “You’re blocking thousands of innocent students to stop a few attackers.” “Rules are rules.” “And that’s why Kunal got in,” she said. “Different ISP, outside Rule 47, no sticky note. Case explained.”</p>
+<p>Up in the control tower, the sweating admin would once have run from switch to switch with a laptop and a samosa. But the university used <b>SDN</b>. “So the controller is the manager and the switches are the workers?” asked Mannat. “Precisely. The control plane lives in one central controller. The switches only move packets, the data plane, and obey through a protocol like OpenFlow.”</p>
+<p>With one click the admin narrowed Rule 47 to the real attackers and rerouted part of the crowd to a second server. “Next!” said Sharma-ji. The request went through, the server replied <b>200 OK</b>, and the result loaded.</p>
+<div class="chat"><b>Mom:</b> WELL???<br><b>Aarav:</b> Passed. Everything. Mom, I’ll explain later, it involves a parrot.</div>
+<div class="cf"><b>Case File: Unit V, Part 2</b><ul><li>A firewall filters by address, port and protocol. Too broad a rule blocks legitimate users.</li><li>SDN separates the control plane (central controller) from the data plane (switches).</li><li>HTTP status codes: 200 OK, 404 Not Found, 503 Service Unavailable.</li></ul></div>
+
+<h2 id="v">Epilogue: The Verdict</h2>
+<div class="wrap"><table><tr><th>Suspect</th><th>What it did</th><th>Layer / topic</th></tr>
+<tr><td>Uncle Stale (old sticky note)</td><td>Sent us to the wrong door</td><td>DNS caching, TTL</td></tr>
+<tr><td>The Crowd</td><td>Slowed down everyone</td><td>TCP congestion control</td></tr>
+<tr><td>Sharma-ji (Rule 47)</td><td>Shut the final door</td><td>Firewall rules</td></tr></table></div>
+<p>Three suspects, three part-time culprits, not a single villain. Mrs. DHCP, Rip Uncle, Ms. OSPF and Mr. BGP? “Innocent. Hard-working. Underpaid.”</p>
+<blockquote>Networks don’t fail with one big explosion. They fail when everybody does their job slightly too well, all at the same time.</blockquote>
+<p>“Hallucination hypothesis,” announced Mannat, “rejected.” <span class="ping">“Rejected!”</span> The next morning Kunal messaged: <i>Bro, what is DHCP?</i> They sent him a link to this story. Somewhere in the router’s blinking light, a very small detective tipped his hat.</p>
+<p class="ping">“Ping!” “Pong. Case closed.”</p>
+<footer><b>Contributions.</b> Arya: Prologue and Chapter 1. Mannat: Chapters 2 and 3. Vidhi: Chapters 4 and 5, final assembly. Tiya: Chapter 6 and Epilogue. Illustrations by each author for their own chapters.</footer>
+</main>
+<script>
+addEventListener('scroll',function(){var d=document.documentElement;document.getElementById('bar').style.width=(100*d.scrollTop/(d.scrollHeight-d.clientHeight))+'%'});
+</script></body></html>
